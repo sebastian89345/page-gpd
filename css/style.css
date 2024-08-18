@@ -950,8 +950,25 @@ position: relative;
 background-size: cover;
 background-repeat: no-repeat;
 background-position:center; 
-background-attachment: fixed;
+/* background-attachment: fixed; */
+/* transition: 0.5s; */
+/* object-fit: cover; */
 }
+
+.image-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.zoom-image {
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* .hero-wrap:hover {
+  transform: scale(1.2);
+} */
+
 @media (max-width: 991.98px) {
 .hero-wrap {
 background-position: left center !important; } }

@@ -133,15 +133,33 @@
 //         return false;
 //     });
 
+    //Effect zoom img
+    $(window).on('scroll', function() {
+        $('.zoom-image').each(function() {
+            var imagePos = $(this).offset().top;
+            var topOfWindow = $(window).scrollTop();
+            var windowHeight = $(window).height();
+
+            // console.log(topOfWindow);
+            
+            if (topOfWindow > 0 && topOfWindow < 500) {
+                // Aplica el zoom cuando la imagen está visible
+                $(this).css('transform', 'scale(1.1)');
+            } else {
+                // Restablece el zoom cuando la imagen ya no es visible
+                $(this).css('transform', 'scale(1)');
+            }
+        });
+
+
+    });
 
     // ? 
     var fullHeight = function() {
-
 		$('.js-fullheight').css('height', $(window).height());
 		$(window).resize(function(){
 			$('.js-fullheight').css('height', $(window).height());
 		});
-
 	};
 	fullHeight();
 
