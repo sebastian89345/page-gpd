@@ -1,3 +1,13 @@
+/* Colores primarios */
+:root {
+
+  --color-primary: #33509f;
+
+}
+
+.text-primary-s{
+  color: var(--color-primary);
+}
 
 /*** Spinner Start ***/
 /*** Spinner ***/
@@ -132,9 +142,9 @@ color: #33509f;
 transition: .5s;
 }
 
-.sticky-top .navbar-light .navbar-brand img {
+/* .sticky-top .navbar-light .navbar-brand img { */
 /* max-height: 50px; */
-}
+/* } */
 
 .navbar .dropdown-toggle::after {
 border: none;
@@ -1295,9 +1305,9 @@ background: #fc5e28;
 }
 .services-wrap:hover .text .icon span {
 color: white; }
-.services-wrap:hover .text .btn-custom {
+/* .services-wrap:hover .text .btn-custom { */
 /* background: #fc5e28;  */
-}
+/* } */
 
 .ftco-services-2 .services {
 -moz-transition: all 0.3s ease;
