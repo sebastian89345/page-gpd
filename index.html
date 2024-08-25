@@ -34,6 +34,16 @@
         <link href="css/style.css" rel="stylesheet">
         <link href="css/animate.css" rel="stylesheet">
 
+        <!-- SweetAlert2 -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5.1.0/dark.min.css">
+
+        <!-- send email - EmailJs -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <script type="text/javascript"> emailjs.init('j1eKIya9wQ7W8kA1a') </script>
+
+        <!-- SweetAlert2 -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     </head>
 
     <body>
@@ -477,14 +487,6 @@
                         <div>
                             <div class="row g-4">
 
-                                <!-- <div class="col-12">
-                                    <div class="d-flex bg-light rounded p-4">
-                                        <div>
-                                            <p>Siguenos en nuestras redes</p>
-                                        </div>
-                                    </div>
-                                </div> -->
-
                                 <div class="col-12 bg-light">
                                     <div class="p-4">
                                         <div class="mb-3 text-center">
@@ -510,34 +512,34 @@
                             <div class="text-center">
                                 <h4 class="text-primary-s mb-4">Envia tu mensaje</h4>
                             </div>
-                            <form>
+                            <form id="form">
                                 <div class="row g-4">
                                     <div class="col-lg-12 col-xl-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="name" placeholder="Nombre completo">
+                                            <input type="text" class="form-control border-0" name="name" id="name" placeholder="Nombre completo" required>
                                             <label for="name">Nombre completo</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-xl-6">
                                         <div class="form-floating">
-                                            <input type="phone" class="form-control border-0" id="phone" placeholder="Telefono">
+                                            <input type="phone" class="form-control border-0" name="phoneNumber" id="phoneNumber" placeholder="Telefono" required>
                                             <label for="phone">Telefono</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-xl-12">
                                         <div class="form-floating">
-                                            <input type="email" class="form-control border-0" id="email" placeholder="Correo">
+                                            <input type="email" class="form-control border-0" name="email" id="email" placeholder="Correo" required>
                                             <label for="email">Correo</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <textarea class="form-control border-0" placeholder="Mensaje" id="message" style="height: 160px"></textarea>
+                                            <textarea class="form-control border-0" placeholder="Mensaje" name="message" id="message" style="height: 160px" required></textarea>
                                             <label for="message">Mensaje</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3">Enviar</button>
+                                        <button type="submit" id="button" class="btn btn-primary w-100 py-3">Enviar</button>
                                     </div>
                                 </div>
                             </form>

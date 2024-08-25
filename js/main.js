@@ -119,20 +119,6 @@
         time: 2000
     });
 
-
-   // Back to top button
-//    $(window).scroll(function () {
-//     if ($(this).scrollTop() > 300) {
-//         $('.back-to-top').fadeIn('slow');
-//     } else {
-//         $('.back-to-top').fadeOut('slow');
-//     }
-//     });
-//     $('.back-to-top').click(function () {
-//         $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
-//         return false;
-//     });
-
     //Effect zoom img
     $(window).on('scroll', function() {
         $('.zoom-image').each(function() {
@@ -202,4 +188,72 @@
 
 
 })(jQuery);
+
+
+// Send email - EmailJs
+const btn = document.getElementById('button');
+
+// Validation Contact
+document.getElementById('form').addEventListener('submit', function(event) {
+
+    // Send email - EmailJs
+    event.preventDefault();
+    const serviceID = 'default_service';
+    const templateID = 'template_l2sf6zr';
+
+    // Validation Contact
+    let name = document.getElementById('name').value.trim();
+    let phoneNumber = document.getElementById('phoneNumber').value.trim();
+    let email = document.getElementById('email').value.trim();
+    let message = document.getElementById('message').value.trim();
+
+    // Validación de que los campos no estén en blanco
+    if (name === "" || phoneNumber === "" || email === "" || message === "") {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Campos incompletos',
+            text: 'Por favor, complete todos los campos.',
+        });
+        event.preventDefault(); // Evita que se envíe el formulario
+        return;
+    }
+
+    // Validación de que el campo 'phoneNumber' solo contenga números
+    if (!/^\d+$/.test(phoneNumber)) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Formato incorrecto',
+            text: 'El campo "Número de Teléfono" solo debe contener números.',
+        });
+        event.preventDefault(); // Evita que se envíe el formulario
+        return;
+    }
+
+    // Send email - EmailJs
+    emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+            // Swal.fire({
+            //     icon: 'success',
+            //     title: 'Mensaje Enviado',
+            //     text: 'Gracias por contactarnos , en breve se contactaron contigo.',
+            // });
+
+            // Si todas las validaciones son correctas, muestra un mensaje de éxito
+            Swal.fire({
+                icon: 'success',
+                title: 'Formulario enviado',
+                text: 'El formulario se ha enviado correctamente.',
+            }).then(() => {
+                // Limpiar los campos del formulario
+                document.getElementById('form').reset();
+            });
+
+        }, (err) => {
+            // btn.value = 'Send Email';
+            alert(JSON.stringify(err));
+        });
+});
+
+
+
 
